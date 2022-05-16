@@ -1,0 +1,16 @@
+/* outer conatiner */
+.AccordionoID{
+    width: 40%;
+    position: fixed;
+    height: calc(100vh - 38px) ;
+    z-index: 2;
+  }
+  
+  @media only screen and (max-width:720px) {
+    .AccordionoID{
+        width: 100%;
+    }
+  }
+  
+  
+  /* outer conatiainer has been finished  */
