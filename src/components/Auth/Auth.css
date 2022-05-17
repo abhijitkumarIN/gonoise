@@ -1,0 +1,27 @@
+.form_control {
+
+    padding: 14px 9px 14px 9px;
+    border-radius: 6px;
+    font-size: 16px;
+    background: #fbfbfb;
+    border: 2px solid transparent;
+    height: 36px;
+    box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 20px 0px;
+    width: 70%;
+    margin: 8px 5% 8px 5%;
+    width: 12px 15% 12px 15%;
+
+}
+
+.form_control:focus {
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+
+@media only screen and (max-width:560px) {
+    .form_control {
+        padding: 11px 9px 11px 9px;
+        width: 90%;
+        margin: 8px 5% 8px 5%;
+    }
+}
