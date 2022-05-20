@@ -9,14 +9,13 @@ import Auth from './components/Auth/Auth';
  function AppRoutes() {
     return (
         <>
-            <BrowserRouter>
+           
                 <Routes>
                     <Route  path="/" element={<Ads/>} />
                     <Route  path="/auth" element={<Auth/>} />
                     <Route  path="/products:id" element={<Products/>} />
                     <Route  path="*" element={<Error />} />
                 </Routes>
-            </BrowserRouter >
         </>
     )
 }

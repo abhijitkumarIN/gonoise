@@ -1,15 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useId } from 'react'
 import './Auth.css'
-import  {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const Auth = () => {
     const [formExchange, setState] = useState(true);
+    const [name, SetName] = useState(null);
+    const [mail , SetMail] =useState(null);
+    const [password , SetPassword] = useState(null);
+    const [passwordCon , SetPasswordCon] = useState(null);
+    const id= useId()
+
+
+const loginSubmit =(e)=>{
+    e.preventDefault();
+   
+}
+const registerForm=(e)=>{
+    e.preventDefault();
+    console.log(name+id , mail+id , password+id , passwordCon+id)
+
+}
+
     return (
         <>
             <div className="bg-white">
                 {
                     formExchange ? (
                         <div className='bg:slate-100  rounded- lg:mx-10 md:mx-10 sm:mx-5'>
-                            <form>
+                            <form onSubmit={loginSubmit}>
                                 <div className='loginConatiner py-10'>
                                     <div className='grid'>
                                         <div className='m-auto'>
@@ -20,8 +37,8 @@ const Auth = () => {
                                     </div>
                                     <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1'>
                                         <div className='py-10'>
-                                            <input type="email" className='form_control rounded outline-none' name="email" placeholder='Mail' required />
-                                            <input type="password" className='form_control rounded  outline-none' name="password" placeholder='Password ' required />
+                                            <input type="email" className='form_control rounded outline-none' onChange={(e)=>SetMail(e.target.value)} name="email" placeholder='Mail' required />
+                                            <input type="password" className='form_control rounded  outline-none' name="password" onChange={(e)=>SetPassword(e.target.value)} placeholder='Password ' required />
 
                                             <div className='form_control p-0' style={{ boxShadow: "none", background: "none" }}>
                                                 <div className="grid ">
@@ -93,7 +110,7 @@ const Auth = () => {
                     ) :
                         (
                             <div className='bg:slate-100  rounded- lg:mx-10 md:mx-10 sm:mx-5'>
-                                <form>
+                                <form onSubmit={registerForm}>
                                     <div className='loginConatiner py-10'>
                                         <div className='grid'>
                                             <div className='m-auto'>
@@ -104,11 +121,11 @@ const Auth = () => {
                                         </div>
                                         <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1'>
                                             <div className='py-10'>
-                                                <input type="text" className='form_control rounded outline-none' name="name" placeholder='Name' required />
+                                                <input type="text" className='form_control rounded outline-none' name="name" placeholder='Name' onChange={(e)=>SetName(e.target.value)} required />
 
-                                                <input type="email" className='form_control rounded outline-none' name="email" placeholder='Mail' required />
-                                                <input type="password" className='form_control rounded  outline-none' name="password" placeholder='Password ' required />
-                                                <input type="password" className='form_control rounded  outline-none' name="passwordconf" placeholder='Password confirm ' required />
+                                                <input type="email" className='form_control rounded outline-none' name="email" placeholder='Mail' onChange={(e)=>SetMail(e.target.value)} required />
+                                                <input type="password" className='form_control rounded  outline-none' name="password" onChange={(e)=>SetPassword(e.target.value)} placeholder='Password ' required />
+                                                <input type="password" className='form_control rounded  outline-none' name="passwordconf" onChange={(e)=>SetPasswordCon(e.target.value)} placeholder='Password confirm ' required />
 
                                                 <div className='form_control p-0' style={{ boxShadow: "none", background: "none" }}>
                                                     <div className="grid ">

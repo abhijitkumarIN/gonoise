@@ -4,7 +4,7 @@ import { landingImage } from '../../JsonData.js/images';
 export default function BannerTop() {
     return (
         <>
-            <div className='text-center lg:px-32 md:px-32 sm:px-3 pb-5 cursor-pointer'>
+            <div className='text-center sm-hidden lg:px-32 md:px-32 sm:px-3 pb-5 cursor-pointer'>
                 {/* lg */}
                 {
                     landingImage ?
@@ -18,6 +18,27 @@ export default function BannerTop() {
                                 </div>
                                 <div className='pb-20 '>
                                     <img src={landingImage.landingImageThreelg ? landingImage.landingImageThreelg : ""} style={{ width: "100%", height: "auto" }} />
+                                </div>
+                            </div>
+                        ))
+                        : ""
+                }
+                {/* sm */}
+            </div>
+            <div className='text-center ms_lg-hidden lg:px-32 md:px-32 sm:px-3 pb-5 cursor-pointer'>
+                {/* lg */}
+                {
+                    landingImage ?
+                        landingImage.map((landingImage, index) => (
+                            <div key={index}>
+                                <div className='pb-5 mt-5'>
+                                    <img src={landingImage.landingImageOnesm ? landingImage.landingImageOnesm : ""} style={{ width: "100%", height: "auto" }} />
+                                </div>
+                                <div className='pb-5 '>
+                                    <img src={landingImage.landingImagetwo ? landingImage.landingImagetwo : ""} style={{ width: "100%", height: "auto" }} />
+                                </div>
+                                <div className='pb-20 '>
+                                    <img src={landingImage.landingImageThreesm ? landingImage.landingImageThreesm : ""} style={{ width: "100%", height: "auto" }} />
                                 </div>
                             </div>
                         ))

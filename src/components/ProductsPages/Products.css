@@ -1,0 +1,10 @@
+
+
+@media only screen and (max-width:720px) {
+    .gonoise_byCmp{
+        width: 100%;
+        position: fixed;
+        bottom: 0px;
+    }
+    
+}

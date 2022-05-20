@@ -5,6 +5,29 @@
     height: calc(100vh - 38px) ;
     z-index: 2;
   }
+  .gonoiseAbhiCartLenght{
+    padding: 0px 11px ;
+    border-radius: 50%;
+    background: rgb(255, 251, 251);
+    font-size: 13px;
+
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+   
+    top: 0.3px;
+
+    left: 17px;
+
+  }
+  .gonoise_authImge{
+    position: absolute;
+    right: 34%;
+    transition: all , 0.4s ease-in-out;
+  }
+  .gonoise_authImge:hover{
+    transform: scale(1.1);
+  }
   
   @media only screen and (max-width:720px) {
     .AccordionoID{

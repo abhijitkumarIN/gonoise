@@ -3,10 +3,13 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store, persistStr } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+
+
 const App = lazy(() => import('./App'));
 const container = document.getElementById('root');
 const root = createRoot(container);
@@ -14,11 +17,13 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistStr}>
-        <Navbar />
+        <BrowserRouter>
+        < Navbar />
         <Suspense fallback={'laoding...'}>
           <App />
         </Suspense>
         <Footer />
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   </React.StrictMode>

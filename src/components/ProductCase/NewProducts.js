@@ -2,7 +2,11 @@ import React from 'react'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { NewPrd } from '../../JsonData.js/products';
+import { useSelector, useDispatch } from 'react-redux/es/exports';
+import { autoRecommendation } from '../../app/Slices/AddToCart';
 export default function NewProducts() {
+    const dispatch = useDispatch()
+    const recommentationState = useSelector((state) => state.cart)
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
@@ -22,6 +26,15 @@ export default function NewProducts() {
             items: 2
         }
     };
+
+    const autorecommentions = (e) => {
+        var check = recommentationState.RecommendationProduct.filter((id) => id.seriesId === e.seriesId);
+        if (check.length !== 0) {
+        } else {
+            dispatch(autoRecommendation(e))
+
+        }
+    }
     return (
 
         <>
@@ -40,7 +53,7 @@ export default function NewProducts() {
                         {
                             NewPrd ?
                                 NewPrd.map((NewPrd, index) => (
-                                    <div key={index} className={` cursor-pointer rounded-2xl py-4 my-8  grid mx-4  bg-white `} style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px 0px" }}>
+                                    <div key={index} onClick={() => autorecommentions(NewPrd)} className={` cursor-pointer rounded-2xl py-4 my-8  grid mx-4  bg-white `} style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px 0px" }}>
                                         <h4 style={{ color: "#ff8d2e", textAlign: "center", fontSize: "12px", fontWeight: "500" }}>NEW</h4>
                                         <div className='m-auto'>
                                             <img className="hover:scale-105" src={NewPrd.img ? NewPrd.img : ""} style={{ width: "60%", margin: "10px 20%" }} />

@@ -6,6 +6,8 @@ import ProductsType from '../ProductCase/ProductsType'
 import NewProducts from '../ProductCase/NewProducts'
 import BestSoldProducts from '../ProductCase/BestSoldProducts'
 import PrecautionBanner from '../Banners/PrecautionBanner'
+import Marque from '../ProductCase/Marque'
+import RecommendationProducts from '../ProductCase/RecommendationProducts'
 export default function Ads() {
 
     const [email, SetMail] = useState()
@@ -24,6 +26,8 @@ export default function Ads() {
             <NewProducts/>
             <PrecautionBanner/>
             <BestSoldProducts/>
+            <Marque/>
+            <RecommendationProducts/>
             </div>
             {/* mail subscribe    */}
             <div className='text-center lg:px-32 md:px-32 sm:px-3 py-20 bg-indigo-200'>

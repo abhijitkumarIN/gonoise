@@ -48,7 +48,7 @@ export default function NewProducts() {
                         {
                             NewPrd ?
                                 NewPrd.map((NewPrd, index) => (
-                                    <div key={index} onClick={()=>redirectionWithId('colorFit')} className={` cursor-pointer rounded-2xl py-4 my-8  grid mx-4  bg-white `} style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px 0px" }}>
+                                    <div key={index} onClick={()=>redirectionWithId(NewPrd.seriesId)} className={` cursor-pointer rounded-2xl py-4 my-8  grid mx-4  bg-white `} style={{ boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px 0px" }}>
                                         <h4 style={{ color: "#ff8d2e", textAlign: "center", fontSize: "12px", fontWeight: "500" }}>Best offer</h4>
                                         <div className='m-auto'>
                                             <img className="hover:scale-105" src={NewPrd.img ? NewPrd.img : ""} style={{ width: "60%", margin: "10px 20%" }} />

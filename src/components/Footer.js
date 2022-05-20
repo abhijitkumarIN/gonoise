@@ -9,11 +9,6 @@ export default function Footer() {
 
 
     function muFunctionCheck() {
-        dispatch(addToCart({
-            name: "abhijeet",
-            with: "wahid ",
-
-        }))
         console.log('global data ', state);
     }
     return (
