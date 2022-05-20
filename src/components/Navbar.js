@@ -10,7 +10,6 @@ export default function Navbar() {
     const [menu, SetMenu] = useState(true)
     const Cart = useSelector((state) => state.cart)
 
-    console.log(Cart.Cart.length)
     // document.addEventListener('mouseup' , (e)=>{
     //     var panel = document.getElementById('AccordionoID');
     //     var toogleBtn = document.getElementById('tooglebtn');
@@ -22,16 +21,13 @@ export default function Navbar() {
     //         }
     //     }
     // })
+    
 
 
     const menuToogle = (e) => {
-        console.log(e)
-        if (menu === false) {
-            SetMenu(true)
-        }
-        else {
-            SetMenu(false)
-        }
+        e.stopPropagation();
+        SetMenu(!menu)
+       
     }
 
 
@@ -40,7 +36,7 @@ export default function Navbar() {
         <>
             <header className='bg-neutral-900 py-1 ' style={{ lineHeight: "36px" }}>
                 <div className='grid grid-cols-6'>
-                    <div className='cursor-pointer' onClick={menuToogle} ><img id="tooglebtn" style={{ paddingTop: "10px", paddingLeft: "10px" }} src={menu ? `https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/mobile-menu.svg?v=140109299008397858811635748412` : `https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/close-icon-white-react.svg?v=82956483883518439201635748412`} alt="loading" /></div>
+                    <div className='cursor-pointer' id="menuclick" onClick={menuToogle} ><img id="tooglebtn" style={{ paddingTop: "10px", paddingLeft: "10px" }} src={menu ? `https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/mobile-menu.svg?v=140109299008397858811635748412` : `https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/close-icon-white-react.svg?v=82956483883518439201635748412`} alt="loading" /></div>
                     <div className="col-span-4 grid ">
                         {
                             logo ?

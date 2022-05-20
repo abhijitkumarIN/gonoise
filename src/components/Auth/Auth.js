@@ -31,7 +31,7 @@ const registerForm=(e)=>{
                                     <div className='grid'>
                                         <div className='m-auto'>
                                             <h1 className='text-4xl  font-semibold'>Login Now</h1>
-                                            <p className='text-sm  mt-1'><span className="cursor-pointer">You don't have </span><span className='font-semibold text-blue-500 font-semibold cursor pointer ' onClick={() => setState(!formExchange)}>Accound  ?</span></p>
+                                            <p className='text-sm  mt-1'><span className="cursor-pointer">You don't have </span><span className='font-semibold text-blue-500 font-semibold cursor-pointer ' onClick={() => setState(!formExchange)}>Accound  ?</span></p>
 
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@ const registerForm=(e)=>{
                                         <div className='grid'>
                                             <div className='m-auto'>
                                                 <h1 className='text-4xl  font-semibold'>Sign Up Now</h1>
-                                                <p className='text-sm  mt-1'><span>You ' ve already  </span><span className='font-semibold text-blue-500 font-semibold cursor pointer ' onClick={() => setState(!formExchange)}>Accound  ?</span></p>
+                                                <p className='text-sm  mt-1 cursor-pointer'><span>You ' ve already  </span><span className='font-semibold text-blue-500 font-semibold cursor pointer ' onClick={() => setState(!formExchange)}>Accound  ?</span></p>
 
                                             </div>
                                         </div>

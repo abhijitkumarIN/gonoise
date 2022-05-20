@@ -30,60 +30,60 @@ export const NewPrd = [
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/2_2c9c710e-7661-43b9-bf1b-d931f88480fc_360x.png?v=1640324756',
         price: 1204,
-        seriesId:'colorFit',
+        seriesId: 'colorFit',
 
 
     },
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/noise_22_360x.png?v=1640264241',
         price: 1204,
-        seriesId:'colorBuzz',
+        seriesId: 'colorBuzz',
 
     }
     ,
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/16_1_360x.png?v=1644403966',
         price: 1204,
-        seriesId:'colorFit',
+        seriesId: 'colorFit',
 
     }
     ,
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/B1_1_360x.png?v=1641451238',
         price: 1204,
-            seriesId:'colorBuzz',
+        seriesId: 'colorBuzz',
 
     }
     ,
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/B-1_1c871ffe-6a74-41bd-8d1e-ab028d4c918c_360x.png?v=1639466662',
         price: 1204,
-        seriesId:'colorFit',
+        seriesId: 'colorFit',
 
     },
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/budsprimanewblack500x500_360x.png?v=1639457006',
         price: 1204,
-        seriesId:'colorBuzz',
+        seriesId: 'colorBuzz',
 
     }
     ,
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/XFITBLACK_3_360x.png?v=1637909417',
         price: 1204,
-        seriesId:'colorFit',
+        seriesId: 'colorFit',
     },
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/white_1_360x.png?v=1643351722',
         price: 1204,
-        seriesId:'colorBuzz',
+        seriesId: 'colorBuzz',
 
     }
     ,
     {
         img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/white-buds_1_360x.png?v=1644404599',
         price: 1204,
-        seriesId:'colorFit',
+        seriesId: 'colorFit',
 
     }
 ]
@@ -93,11 +93,11 @@ export const NewPrd = [
 export const productsAll = {
     watch_series: [
         {
-            seriesId:' colorFit',
+            seriesId: ' colorFit',
             seriesName: 'ColorFit Caliber',
             bannerImg: 'https://cdn.shopify.com/s/files/1/0997/6284/products/B1_1_480x.png?v=1641451238',
             rating: 4,
-            discount:100,
+            discount: 100,
             price: 1240,
             imageViewGallery: [
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/Black3_13603157-0081-4059-b731-05125bd86556_480x.png?v=1641451238',
@@ -107,20 +107,86 @@ export const productsAll = {
             ],
         },
         {
-            seriesId:' colorBuzz',
+            seriesId: ' colorBuzz',
             seriesName: 'ColorBuzz Fanti',
             bannerImg: 'https://cdn.shopify.com/s/files/1/0997/6284/products/NoisePulse1stImageNew_1_480x.png?v=1644404011',
             rating: 4,
-            discount:100,
+            discount: 100,
             price: 1240,
-            
+
             imageViewGallery: [
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/NoisePulse1stImageNew_1_480x.png?v=1644404011',
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/Black4_c5484f04-3365-4bf6-9fcf-68492531cabe_480x.png?v=1641451238',
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/Black5_e7591788-f24e-4b98-a447-0b89bb550705_480x.png?v=1641451236',
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/B1_1_480x.png?v=1641451238',
-                
+
             ],
         },
     ]
 }
+
+
+export const all_products = [
+    {
+        type: 'smartwatch',
+        seriesId: 'colorBuzz',
+        seriesName: 'ColorBuzz Fanti',
+        img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/JetBlack_360x.png?v=1652161999',
+        price: 340,
+        discount: 876,
+        rating: 3,
+        offerTitle: 'best Sell'
+    },
+    {
+        type: 'smartwatch',
+        seriesId: 'colorBuzz',
+        seriesName: 'ColorBuzz Fanti',
+        img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/Artboard7_360x.png?v=1637578821',
+        price: 2740,
+        discount: 876,
+        rating: 5,
+        offerTitle: 'best Sell'
+    },
+    {
+        type: 'smartwatch',
+        seriesId: 'colorBuzz',
+        seriesName: 'ColorBuzz Fanti',
+        img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/NoiseColorFitPro2Smartwatch-IndiaNo.1SmartWearableBrand_11_360x.png?v=1627585470',
+        price: 5440,
+        discount: 866,
+        rating: 2.2,
+        offerTitle: 'best Sell'
+    },
+    {
+        type: 'flair',
+        seriesId: 'colorBuzz',
+        seriesName: 'Flair',
+        img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/Artboard1_f25c5842-36c2-4588-a9b3-f6482b5e28c1_360x.png?v=1627585694',
+        price: 1040,
+        discount: 876,
+        rating: 4.3,
+        offerTitle: 'best Sell'
+    }
+    , {
+        type: 'One Headphone',
+        seriesId: 'colorBuzz',
+        seriesName: 'Flair',
+        img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/Artboard1_360x.png?v=1627587046',
+        price: 13340,
+        discount: 876,
+        rating: 1.3,
+        offerTitle: 'best Sell'
+    }
+    ,
+    {
+        type: 'Speacker ',
+        seriesId: 'colorBuzz',
+        seriesName: 'Flair',
+        img: 'https://cdn.shopify.com/s/files/1/0997/6284/products/1_d98b2e34-641f-4726-b053-2fbaa33e6e91_360x.png?v=1627587359',
+        price: 8340,
+        discount: 876,
+        rating: 4,
+        offerTitle: 'best Sell'
+        
+    }
+]

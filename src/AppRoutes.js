@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Ads from './components/Ads/Ads';
 import Products from './components/ProductsPages/Products';
 import Auth from './components/Auth/Auth';
+import AllproductPage from './components/ProductsPages/AllproductPage';
 
  function AppRoutes() {
     return (
@@ -14,6 +15,7 @@ import Auth from './components/Auth/Auth';
                     <Route  path="/" element={<Ads/>} />
                     <Route  path="/auth" element={<Auth/>} />
                     <Route  path="/products:id" element={<Products/>} />
+                    <Route path="/allproduct"  element={<AllproductPage/>}/>
                     <Route  path="*" element={<Error />} />
                 </Routes>
         </>

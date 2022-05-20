@@ -20,6 +20,9 @@ export default function Ads() {
 
     return (
         <>
+
+
+
             <BannerTop />
             <div className='text-center lg:px-32 md:px-32 sm:px-3 py-10 '>
             <ProductsType/>
