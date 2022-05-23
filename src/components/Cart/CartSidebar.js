@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
-export default function CartSidebar() {
+export default function CartSidebar({priceTrigering}) {
 
     const [cartData, SetcartData] = useState(null)
     const [totalPriceState, setTotalPriceState] = useState(0)
     const cart = useSelector((state) => state.cart.Cart)
 
-
-
     useEffect(() => {
         SetcartData(cart);
-        console.log(cartData);
         priceCalculate();
-    }, [cartData])
+    }, [cartData , totalPriceState , priceTrigering ])
 
 
     const priceCalculate = () => {
         var totalPrice = 0;
         cart.map((i, index) => totalPrice = i.price + totalPrice);
         setTotalPriceState(totalPrice);
-        console.log(totalPriceState);
+        console.log(totalPrice , '' , totalPriceState)
     }
 
 

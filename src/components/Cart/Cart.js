@@ -7,6 +7,7 @@ import { removetoCart } from '../../app/Slices/AddToCart';
 
 export default function Cart() {
     const [cartData, SetcartData] = useState(null)
+    const [priceTrigring ,SetPriceTriggering] = useState(false)
     const cart = useSelector((state) => state.cart.Cart)
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -20,6 +21,7 @@ export default function Cart() {
     const removeIT = (e) => {
         var filtred = cartData.filter((i) => i.seriesId != e)
         dispatch(removetoCart(filtred))
+        SetPriceTriggering(!priceTrigring)
     }
 
     return (
@@ -60,7 +62,7 @@ export default function Cart() {
                     }
                 </div>
                 <div>
-                    <CartSidebar />
+                    <CartSidebar priceTrigering={priceTrigring} />
                 </div>
             </div>
         </>
