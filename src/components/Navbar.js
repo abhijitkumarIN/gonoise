@@ -4,7 +4,7 @@ import { logo } from '../JsonData.js/images'
 import NavbarModal from './Model/NavbarModal/NavbarModal'
 import ProductsType from './ProductCase/ProductsType'
 import { useSelector } from 'react-redux'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     const [menu, SetMenu] = useState(true)
@@ -21,13 +21,13 @@ export default function Navbar() {
     //         }
     //     }
     // })
-    
+
 
 
     const menuToogle = (e) => {
         e.stopPropagation();
         SetMenu(!menu)
-       
+
     }
 
 
@@ -51,12 +51,12 @@ export default function Navbar() {
 
                     </div>
                     <div className="relative">{
-                        Cart.Cart.length >= 1 ? <div className='gonoiseAbhiCartLenght'>{Cart.Cart.length}</div> : ''
+                        Cart.Cart.length >= 1 ? <Link to="/cart"><div className='gonoiseAbhiCartLenght'>{Cart.Cart.length}</div></Link> : ''
                     }
                         <img src="https://cdn.shopify.com/s/files/1/0997/6284/files/cart-bag-new.svg?v=5749620504844230698" className="absolute" style={{ top: "4.3px" }} />
-                   
 
-                 <Link to="/auth">  <img src="https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/account-icon.svg?v=40610059353920805021635748414" className='gonoise_authImge' style={{ top: "4.3px" }}/></Link>
+
+                        <Link to="/auth">  <img src="https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/account-icon.svg?v=40610059353920805021635748414" className='gonoise_authImge' style={{ top: "4.3px" }} /></Link>
                     </div>
                 </div>
             </header>

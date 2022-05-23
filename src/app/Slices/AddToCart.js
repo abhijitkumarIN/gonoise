@@ -3,8 +3,6 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
 Cart:[],
 RecommendationProduct:[],
-
-
 }
 
 const AddToCart = createSlice({
@@ -15,7 +13,7 @@ const AddToCart = createSlice({
           state.Cart.push(payload)
       },
       removetoCart:(state, {payload})=>{
-        state.Cart.push(payload)
+        state.Cart =[...payload]
       },
       autoRecommendation:(state , {payload})=>{
         state.RecommendationProduct.push(payload)

@@ -1,24 +1,74 @@
-import React, { useState, useEffect , useId } from 'react'
+import React, { useState, useEffect, useId } from 'react'
 import './Auth.css'
 import { Link } from 'react-router-dom'
+import { collection, addDoc, Timestamp, query, orderBy, onSnapshot , doc } from 'firebase/firestore'
+import { db } from '../../firebase'
 const Auth = () => {
     const [formExchange, setState] = useState(true);
     const [name, SetName] = useState(null);
-    const [mail , SetMail] =useState(null);
-    const [password , SetPassword] = useState(null);
-    const [passwordCon , SetPasswordCon] = useState(null);
-    const id= useId()
+    const [mail, SetMail] = useState(null);
+    const [password, SetPassword] = useState(null);
+    const [passwordCon, SetPasswordCon] = useState(null);
+    const id = useId()
 
 
-const loginSubmit =(e)=>{
-    e.preventDefault();
-   
-}
-const registerForm=(e)=>{
-    e.preventDefault();
-    console.log(name+id , mail+id , password+id , passwordCon+id)
+    const loginSubmit = (e) => {
+        e.preventDefault();
 
-}
+    }
+    var filterationArray = [];
+    useEffect(() => {
+try{
+        const filteration = addDoc(collection(db, 'task' ) ,  orderBy('created' , 'desc'));
+        console.log(filteration)
+        onSnapshot(filteration, (onsnapshot) => {
+            onsnapshot.docs.map((doc) => (filterationArray.push({
+                id: doc.id,
+                data: doc.data()
+            })
+            ))
+        })
+    }catch(e){
+        console.log(e)
+    }
+
+    }, [])
+
+    const registerForm = async (e) => {
+
+        e.preventDefault();
+
+
+
+
+        if (false) {
+            if (password === passwordCon && password.length >= 8 && passwordCon.length >= 8) {
+                console.log(password, " ---", passwordCon)
+                try {
+                    await addDoc(collection(db, 'task'), {
+                        name: name,
+                        mail: mail,
+                        password: password,
+                        created: Timestamp.now()
+                    })
+
+                    alert("You form has been added")
+                } catch (e) {
+                    alert("Something goen wrong ", e)
+                }
+            }
+            else {
+                alert("Your given pasword is invalid ")
+            }
+        }
+        else {
+            alert("You 're our old user Please login ");
+        }
+        SetName('')
+        SetMail('')
+        SetPassword('')
+        SetPasswordCon('')
+    }
 
     return (
         <>
@@ -37,8 +87,8 @@ const registerForm=(e)=>{
                                     </div>
                                     <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1'>
                                         <div className='py-10'>
-                                            <input type="email" className='form_control rounded outline-none' onChange={(e)=>SetMail(e.target.value)} name="email" placeholder='Mail' required />
-                                            <input type="password" className='form_control rounded  outline-none' name="password" onChange={(e)=>SetPassword(e.target.value)} placeholder='Password ' required />
+                                            <input type="email" className='form_control rounded outline-none' onChange={(e) => SetMail(e.target.value)} name="email" placeholder='Mail' required />
+                                            <input type="password" className='form_control rounded  outline-none' name="password" onChange={(e) => SetPassword(e.target.value)} placeholder='Password ' required />
 
                                             <div className='form_control p-0' style={{ boxShadow: "none", background: "none" }}>
                                                 <div className="grid ">
@@ -121,11 +171,11 @@ const registerForm=(e)=>{
                                         </div>
                                         <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1'>
                                             <div className='py-10'>
-                                                <input type="text" className='form_control rounded outline-none' name="name" placeholder='Name' onChange={(e)=>SetName(e.target.value)} required />
+                                                <input type="text" className='form_control rounded outline-none' name="name" placeholder='Name' value={name} onChange={(e) => SetName(e.target.value)} required />
 
-                                                <input type="email" className='form_control rounded outline-none' name="email" placeholder='Mail' onChange={(e)=>SetMail(e.target.value)} required />
-                                                <input type="password" className='form_control rounded  outline-none' name="password" onChange={(e)=>SetPassword(e.target.value)} placeholder='Password ' required />
-                                                <input type="password" className='form_control rounded  outline-none' name="passwordconf" onChange={(e)=>SetPasswordCon(e.target.value)} placeholder='Password confirm ' required />
+                                                <input type="email" className='form_control rounded outline-none' name="email" placeholder='Mail' value={mail} onChange={(e) => SetMail(e.target.value)} required />
+                                                <input type="password" className='form_control rounded  outline-none' name="password" value={password} onChange={(e) => SetPassword(e.target.value)} placeholder='Password ' required />
+                                                <input type="password" className='form_control rounded  outline-none' name="passwordconf" value={passwordCon} onChange={(e) => SetPasswordCon(e.target.value)} placeholder='Password confirm ' required />
 
                                                 <div className='form_control p-0' style={{ boxShadow: "none", background: "none" }}>
                                                     <div className="grid ">

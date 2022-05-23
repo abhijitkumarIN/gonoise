@@ -47,6 +47,7 @@ export default function NewProducts() {
                         responsive={responsive}
                         infinite={true}
                         autoPlay={true}
+                        removeArrowOnDeviceType={["mobile", "tablet"]}
                         style={{ padding: "40px" }}
 
                     >

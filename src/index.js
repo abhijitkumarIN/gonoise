@@ -8,8 +8,6 @@ import { store, persistStr } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-
-
 const App = lazy(() => import('./App'));
 const container = document.getElementById('root');
 const root = createRoot(container);

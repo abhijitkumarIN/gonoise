@@ -43,7 +43,7 @@ export default function NewProducts() {
                         infinite={true}
                         autoPlay={false}
                         style={{ padding: "40px" }}
-
+removeArrowOnDeviceType={["mobile" , "tablet"]}
                     >
                         {
                             NewPrd ?
