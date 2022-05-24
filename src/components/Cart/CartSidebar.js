@@ -19,8 +19,6 @@ export default function CartSidebar({priceTrigering}) {
         setTotalPriceState(totalPrice);
         console.log(totalPrice , '' , totalPriceState)
     }
-
-
     return (
         <div><h1>Total price : &nbsp; {totalPriceState}</h1></div>
     )

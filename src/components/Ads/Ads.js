@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Ads.css'
 import { servicesTrust } from '../../JsonData.js/images'
 import BannerTop from '../Banners/BannerTop'
@@ -8,13 +8,56 @@ import BestSoldProducts from '../ProductCase/BestSoldProducts'
 import PrecautionBanner from '../Banners/PrecautionBanner'
 import Marque from '../ProductCase/Marque'
 import RecommendationProducts from '../ProductCase/RecommendationProducts'
+// firebase 
+import { db } from '../../firebase'
+import { collection, addDoc, query, orderBy, onSnapshot, doc, Timestamp } from 'firebase/firestore'
 export default function Ads() {
 
     const [email, SetMail] = useState()
-    function subscribe(e) {
-        e.preventDefault();
-        console.log(email)
+    const [dbmail, SetDbmail] = useState([])
 
+
+    useEffect(() => {
+
+        try {
+            const mailIDfilteration = query(collection(db, 'subsriberMailid'), orderBy('created', 'desc'));
+            onSnapshot(mailIDfilteration, (onsnapshot) => {
+                onsnapshot.docs.map((doc) => (
+                    dbmail.push({
+                        id: doc.id,
+                        data: doc.data(),
+                    })
+                ))
+            })
+
+        } catch (e) {
+            // error object 
+        }
+    }, [])
+
+
+    async function subscribe(e) {
+
+        e.preventDefault();
+        var filtreddata = dbmail.filter((i, index) => i.data.mailID == email);
+        console.log(filtreddata , '<----->' , dbmail)
+        if (email) {
+            if (filtreddata.length == 0) {
+                try {
+                    await addDoc(collection(db, 'subsriberMailid'), {
+                        mailID: email,
+                        created: Timestamp.now(),
+                    })
+                    alert("Thanks , has beeen subscribed ");
+
+                } catch (e) {
+                    console.log(e.messege)
+                    alert("Sorry something happend   wrong  ");
+                }
+            } else {
+                alert("You 're already subscriber ");
+            }
+        }
         SetMail("")
     }
 
@@ -25,12 +68,12 @@ export default function Ads() {
 
             <BannerTop />
             <div className='text-center lg:px-32 md:px-32 sm:px-3 py-10 '>
-            <ProductsType/>
-            <NewProducts/>
-            <PrecautionBanner/>
-            <BestSoldProducts/>
-            <Marque/>
-            <RecommendationProducts/>
+                <ProductsType />
+                <NewProducts />
+                <PrecautionBanner />
+                <BestSoldProducts />
+                <Marque />
+                <RecommendationProducts />
             </div>
             {/* mail subscribe    */}
             <div className='text-center lg:px-32 md:px-32 sm:px-3 py-20 bg-indigo-200'>

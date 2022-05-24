@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useId } from 'react'
 import './Auth.css'
-import { Link } from 'react-router-dom'
-import { collection, addDoc, Timestamp, query, orderBy, onSnapshot , doc } from 'firebase/firestore'
+import { Link, useNavigate } from 'react-router-dom'
+import { collection, addDoc, Timestamp, query, orderBy, onSnapshot, doc } from 'firebase/firestore'
 import { db } from '../../firebase'
 const Auth = () => {
     const [formExchange, setState] = useState(true);
@@ -9,39 +9,50 @@ const Auth = () => {
     const [mail, SetMail] = useState(null);
     const [password, SetPassword] = useState(null);
     const [passwordCon, SetPasswordCon] = useState(null);
+    const [dbState, SetDbState] = useState([])
+    const navigate = useNavigate()
     const id = useId()
 
 
-    const loginSubmit = (e) => {
-        e.preventDefault();
-
-    }
-    var filterationArray = [];
     useEffect(() => {
-try{
-        const filteration = addDoc(collection(db, 'task' ) ,  orderBy('created' , 'desc'));
-        console.log(filteration)
-        onSnapshot(filteration, (onsnapshot) => {
-            onsnapshot.docs.map((doc) => (filterationArray.push({
-                id: doc.id,
-                data: doc.data()
+        try {
+            const filteration = query(collection(db, 'task'), orderBy('created', 'desc'));
+            onSnapshot(filteration, (onsnapshot) => {
+                onsnapshot.docs.map((doc) => (dbState.push({
+                    id: doc.id,
+                    data: doc.data()
+                })
+                ))
             })
-            ))
-        })
-    }catch(e){
-        console.log(e)
-    }
+
+        } catch (e) {
+            console.log(e)
+        }
 
     }, [])
 
-    const registerForm = async (e) => {
-
+    const loginSubmit = (e) => {
         e.preventDefault();
+        try {
+            var filtreddata = dbState.filter((i, index) => i.data.mail == mail && i.data.password == password);
+            if (filtreddata.at(0).data.mail == mail && filtreddata.at(0).data.password == password) {
+                localStorage.setItem('logged', JSON.stringify(filtreddata[0]));
+             alert("you has been logged ")
+                navigate('/')
+            } else {
+                alert("invalid mail/password")
+            }
+        } catch (e) {
+            console.log(e, ' ');
+            alert("invalid mail/password")
+        }
+    }
 
 
-
-
-        if (false) {
+    const registerForm = async (e) => {
+        e.preventDefault();
+        var filtreddata = dbState.filter((i, index) => i.data.mail == mail);
+        if (filtreddata.length == 0) {
             if (password === passwordCon && password.length >= 8 && passwordCon.length >= 8) {
                 console.log(password, " ---", passwordCon)
                 try {
@@ -51,14 +62,15 @@ try{
                         password: password,
                         created: Timestamp.now()
                     })
+                    alert("You form has been added");
+                    navigate('/')
 
-                    alert("You form has been added")
                 } catch (e) {
-                    alert("Something goen wrong ", e)
+                    alert("Something gone wrong ", e);
                 }
             }
             else {
-                alert("Your given pasword is invalid ")
+                alert("Your given pasword is invalid ");
             }
         }
         else {
