@@ -24,11 +24,9 @@ const Auth = () => {
                 })
                 ))
             })
-
         } catch (e) {
             console.log(e)
         }
-
     }, [])
 
     const loginSubmit = (e) => {
@@ -36,8 +34,9 @@ const Auth = () => {
         try {
             var filtreddata = dbState.filter((i, index) => i.data.mail == mail && i.data.password == password);
             if (filtreddata.at(0).data.mail == mail && filtreddata.at(0).data.password == password) {
-                localStorage.setItem('logged', JSON.stringify(filtreddata[0]));
-             alert("you has been logged ")
+                localStorage.setItem('authsuccesed', JSON.stringify(filtreddata[0]));
+                alert("you has been logged ")
+
                 navigate('/')
             } else {
                 alert("invalid mail/password")
@@ -47,8 +46,6 @@ const Auth = () => {
             alert("invalid mail/password")
         }
     }
-
-
     const registerForm = async (e) => {
         e.preventDefault();
         var filtreddata = dbState.filter((i, index) => i.data.mail == mail);
@@ -62,8 +59,10 @@ const Auth = () => {
                         password: password,
                         created: Timestamp.now()
                     })
+                    localStorage.setItem('authsuccesed', JSON.stringify(filtreddata[0]));
                     alert("You form has been added");
                     navigate('/')
+
 
                 } catch (e) {
                     alert("Something gone wrong ", e);
@@ -81,7 +80,6 @@ const Auth = () => {
         SetPassword('')
         SetPasswordCon('')
     }
-
     return (
         <>
             <div className="bg-white">

@@ -12,13 +12,9 @@ import RecommendationProducts from '../ProductCase/RecommendationProducts'
 import { db } from '../../firebase'
 import { collection, addDoc, query, orderBy, onSnapshot, doc, Timestamp } from 'firebase/firestore'
 export default function Ads() {
-
     const [email, SetMail] = useState()
     const [dbmail, SetDbmail] = useState([])
-
-
     useEffect(() => {
-
         try {
             const mailIDfilteration = query(collection(db, 'subsriberMailid'), orderBy('created', 'desc'));
             onSnapshot(mailIDfilteration, (onsnapshot) => {
@@ -34,13 +30,9 @@ export default function Ads() {
             // error object 
         }
     }, [])
-
-
     async function subscribe(e) {
-
         e.preventDefault();
         var filtreddata = dbmail.filter((i, index) => i.data.mailID == email);
-        console.log(filtreddata , '<----->' , dbmail)
         if (email) {
             if (filtreddata.length == 0) {
                 try {
@@ -63,9 +55,6 @@ export default function Ads() {
 
     return (
         <>
-
-
-
             <BannerTop />
             <div className='text-center lg:px-32 md:px-32 sm:px-3 py-10 '>
                 <ProductsType />

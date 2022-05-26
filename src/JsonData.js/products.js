@@ -93,7 +93,7 @@ export const NewPrd = [
 export const productsAll = {
     watch_series: [
         {
-            seriesId: ' colorFit',
+            seriesId: 'colorFit',
             seriesName: 'ColorFit Caliber',
             bannerImg: 'https://cdn.shopify.com/s/files/1/0997/6284/products/B1_1_480x.png?v=1641451238',
             rating: 4,
@@ -105,9 +105,64 @@ export const productsAll = {
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/Black5_e7591788-f24e-4b98-a447-0b89bb550705_480x.png?v=1641451236',
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/B1_1_480x.png?v=1641451238',
             ],
+
+            productDetail: [
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-1_16c1cad9-2cde-465c-86be-0103d2bc20bc_1500x.png?v=1626690119',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-2_50626d06-ef4a-4f56-af25-90c28139af4d_765x.png?v=1626684756',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-6_8ce3c849-dee5-4b33-8873-1319f4eb1bd8_765x.png?v=1626688243',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Filler-section_1900x.png?v=1626305829',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-7_c7a368c6-83c4-48e9-967e-c853e4dc0a5c_765x.png?v=1626688383',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+
+            ],
+            fqa: [
+                {
+                    que: 'It is best product ?',
+                    ans: 'No , it is one of the inferior product of the whole market but still you must purchase  😂🤣'
+                },
+                {
+                    que: 'In how many days I can get it  ?',
+                    ans: 'Not days you can get it within some day '
+                },
+                {
+                    que: 'What is Warranty period  ?',
+                    ans: '365 days '
+                }
+                , {
+                    que: 'Who is owned this company  ?',
+                    ans: 'Chor '
+                }
+            ]
+
+
         },
         {
-            seriesId: ' colorBuzz',
+            seriesId: 'colorBuzz',
             seriesName: 'ColorBuzz Fanti',
             bannerImg: 'https://cdn.shopify.com/s/files/1/0997/6284/products/NoisePulse1stImageNew_1_480x.png?v=1644404011',
             rating: 4,
@@ -121,6 +176,59 @@ export const productsAll = {
                 'https://cdn.shopify.com/s/files/1/0997/6284/products/B1_1_480x.png?v=1641451238',
 
             ],
+            productDetail: [
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-1_16c1cad9-2cde-465c-86be-0103d2bc20bc_1500x.png?v=1626690119',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-2_50626d06-ef4a-4f56-af25-90c28139af4d_765x.png?v=1626684756',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-6_8ce3c849-dee5-4b33-8873-1319f4eb1bd8_765x.png?v=1626688243',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Filler-section_1900x.png?v=1626305829',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+                {
+                    img: 'https://cdn.shopify.com/s/files/1/0997/6284/files/Untitled-7_c7a368c6-83c4-48e9-967e-c853e4dc0a5c_765x.png?v=1626688383',
+                    name: '',
+                    titele: '',
+                    des: '',
+                },
+
+            ],
+            fqa: [
+                {
+                    que: 'It is best product ?',
+                    ans: 'No , it is one of the inferior product of the whole market but still you must purchase  😂🤣'
+                },
+                {
+                    que: 'In how many days I can get it  ?',
+                    ans: 'Not days you can get it within some day '
+                },
+                {
+                    que: 'What is Warranty period  ?',
+                    ans: '365 days '
+                }
+                , {
+                    que: 'Who is owned this company  ?',
+                    ans: 'Chor '
+                }
+            ]
+
         },
     ]
 }
@@ -187,6 +295,6 @@ export const all_products = [
         discount: 876,
         rating: 4,
         offerTitle: 'best Sell'
-        
+
     }
 ]

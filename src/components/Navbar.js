@@ -8,29 +8,36 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     const [menu, SetMenu] = useState(true)
+    const [authsuccess, SetAuth] = useState(false)
     const Cart = useSelector((state) => state.cart)
-
-    // document.addEventListener('mouseup' , (e)=>{
-    //     var panel = document.getElementById('AccordionoID');
-    //     var toogleBtn = document.getElementById('tooglebtn');
-    //     if(e.pageX===24 && e.pageY ===21 && menu === false || menu === false && e.target !== panel  ){
-    //         SetMenu(true)
-    //     }else {
-    //         if(e.pageX===24 && e.pageY ===21 && menu === false ){
-    //         SetMenu(true)
-    //         }
-    //     }
-    // })
-
-
-
     const menuToogle = (e) => {
         e.stopPropagation();
         SetMenu(!menu)
 
     }
 
+    useEffect(() => {
+        try {
+            const authsuccesed = localStorage.getItem('authsuccesed');
+            if (authsuccesed) {
+                SetAuth(authsuccesed)
+            } else {
+                SetAuth(false)
+            }
+        } catch (e) {
+            // error object 
+        }
 
+    })
+
+    console.log(window)
+
+
+    const logOut = () => {
+
+        localStorage.clear()
+        SetAuth(false)
+    }
 
     return (
         <>
@@ -55,8 +62,11 @@ export default function Navbar() {
                     }
                         <img src="https://cdn.shopify.com/s/files/1/0997/6284/files/cart-bag-new.svg?v=5749620504844230698" className="absolute" style={{ top: "4.3px" }} />
 
-
-                        <Link to="/auth">  <img src="https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/account-icon.svg?v=40610059353920805021635748414" className='gonoise_authImge' style={{ top: "4.3px" }} /></Link>
+                        {
+                            authsuccess == false ?
+                                <Link to="/auth">  <img src="https://cdn.shopify.com/s/files/1/0997/6284/t/314/assets/account-icon.svg?v=40610059353920805021635748414" className='gonoise_authImge' style={{ top: "4.3px" }} /></Link>
+                                : ''
+                        }
                     </div>
                 </div>
             </header>
@@ -71,8 +81,24 @@ export default function Navbar() {
                             </NavbarModal>
                         ))
                     }
+
+                        <div className='bg-neutral-900'>
+                            <Link to="/noiseLab"><p className='text-white  ' style={{ fontSize: "14px", padding: "0.5em 1.67em", display: "flex", borderBottom: "1px solid #929292", alignItems: "center", justifyContent: "space-between" }}> Noise Lab  </p></Link>
+                        </div>
+                        {
+
+                            authsuccess == false ?
+                                <div className='bg-neutral-900'>
+                                    <Link to="/auth"><p className='text-white  ' style={{ fontSize: "14px", padding: "0.5em 1.67em", display: "flex", borderBottom: "1px solid #929292", alignItems: "center", justifyContent: "space-between" }}>SignUP or Login </p></Link>
+                                </div>
+                                :
+                                <div className='bg-neutral-900' onClick={logOut}>
+                                    <p className='text-white cursor-pointer ' style={{ fontSize: "14px", padding: "0.5em 1.67em", display: "flex", borderBottom: "1px solid #929292", alignItems: "center", justifyContent: "space-between" }}>Logout  </p>
+                                </div>
+                        }
                     </div>
             }
+
 
         </>
     )

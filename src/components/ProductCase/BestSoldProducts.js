@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { NewPrd } from '../../JsonData.js/products';
 import { useNavigate } from 'react-router-dom';
+
 export default function NewProducts() {
     const navigate = useNavigate()
 
@@ -27,7 +28,7 @@ export default function NewProducts() {
     };
 
     function redirectionWithId(e){
-        navigate(`/products ${e}`,{state:{id:1,name:'sabaoon'}});
+        navigate(`/products${e}`,{state:{id:1,name:'sabaoon'}});
     }
 
     return (

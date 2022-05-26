@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import { Navigation } from "swiper";
 import './Products.css'
+import NavbarModal from '../Model/NavbarModal/NavbarModal';
 
 
 
@@ -54,7 +55,7 @@ function Products() {
                     productRender ?
                         (<>
                             <div>
-                                <div className="gonoise_byCmp grid grid-cols-2 py-2 px-4" style={{ boxShadow: "0  0 4px #c0c0c0 " }}>
+                                <div className="gonoise_byCmp bg-white grid grid-cols-2 py-2 px-4" style={{ boxShadow: "0  0 4px #c0c0c0 " }}>
                                     <div className="sm-hidden">
                                         {
                                             productRender.map((productRender, index) => (
@@ -100,10 +101,55 @@ function Products() {
                                             ))
                                         }
                                     </Swiper>
+
+
+
+
                                 </div>
                             ))
                             }
+
+
+                            {
+                                productRender.map((productRender, index) => (
+                                    <div key={index} className="bg-black">
+                                        {
+                                            productRender.productDetail ?
+                                                productRender.productDetail.map((productDetails, index) => (
+                                                    <div key={index} className=" lg:px-64 md:px-64 px-5">
+                                                        {productDetails.img ?
+                                                            <img src={productDetails.img} style={{ width: '100%', height: "auto" }} alt="laoding.." />
+                                                            : ''
+                                                        }
+                                                    </div>
+                                                ))
+                                                : ''
+                                        }
+                                        {/* fqAsked  */}
+                                        <div className="lg:px-64 md:px-64 px-5">
+                                            {
+                                                productRender.fqa ?
+                                                    productRender.fqa.map((fqa, index) => (
+                                                        <div className='lg:mb-3 md:mb-3'>
+                                                        <NavbarModal  key={index} title={<p className='lg:text-base md:text-sm text-sm'>{fqa.que ? fqa.que : ''} </p>}>
+                                                            {
+                                                                fqa.ans ? <p className='lg:text-base md:text-sm text-sm'>{fqa.ans}</p> : ''
+                                                            }
+                                                        </NavbarModal>
+                                                        </div>
+                                                    ))
+
+                                                    : ''
+                                            }
+                                        </div>
+
+                                    </div>
+                                ))
+                            }
+
                         </>)
+
+
                         : (
                             // loading spinner 
                             <p>loading...</p>

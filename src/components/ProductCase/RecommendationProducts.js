@@ -36,7 +36,7 @@ export default function RecommendationProducts() {
     };
 
     function redirectionWithId(e){
-      navigate(`/products ${e}`,{state:{id:1,name:'sabaoon'}});
+      navigate(`/products${e}`,{state:{id:1,name:'sabaoon'}});
   }
 
     return (

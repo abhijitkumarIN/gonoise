@@ -16,7 +16,7 @@ export default function Cart() {
     }, [cartData, cart])
 
     const redirectionProduct = (e) => {
-        navigate(`/products ${e}`)
+        navigate(`/products${e}`)
     }
     const removeIT = (e) => {
         var filtred = cartData.filter((i) => i.seriesId != e)
