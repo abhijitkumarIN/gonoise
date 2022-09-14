@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 this project  can be started with 
 ### `npm start` command 
-### Developer : `Abhijeet kumar `
+
 ### Tools used :`Redux-toolkit , redux-persit , firebase , tailwindcss `
 
 Runs the app in the development mode.\
