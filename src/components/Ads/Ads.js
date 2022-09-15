@@ -40,11 +40,11 @@ export default function Ads() {
                         mailID: email,
                         created: Timestamp.now(),
                     })
-                    alert("Thanks , has beeen subscribed ");
+                    alert("Thanks , has been subscribed ");
 
                 } catch (e) {
                     console.log(e.messege)
-                    alert("Sorry something happend   wrong  ");
+                    alert("Sorry something happend wrong  ");
                 }
             } else {
                 alert("You 're already subscriber ");
