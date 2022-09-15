@@ -40,7 +40,7 @@ export default function Ads() {
                         mailID: email,
                         created: Timestamp.now(),
                     })
-                    alert("Thanks , has beeen subscribed ");
+                    alert("Thanks , has been subscribed ");
 
                 } catch (e) {
                     console.log(e.messege)
