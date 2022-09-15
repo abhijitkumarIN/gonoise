@@ -44,7 +44,7 @@ export default function Ads() {
 
                 } catch (e) {
                     console.log(e.messege)
-                    alert("Sorry something happend   wrong  ");
+                    alert("Sorry something happend wrong  ");
                 }
             } else {
                 alert("You 're already subscriber ");
