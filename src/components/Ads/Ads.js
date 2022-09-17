@@ -10,10 +10,10 @@ import Marque from '../ProductCase/Marque'
 import RecommendationProducts from '../ProductCase/RecommendationProducts'
 // firebase 
 import { db } from '../../firebase'
-import { collection, addDoc, query, orderBy, onSnapshot, doc, Timestamp } from 'firebase/firestore'
+import { collection, addDoc, query, orderBy, onSnapshot, Timestamp } from 'firebase/firestore'
 export default function Ads() {
     const [email, SetMail] = useState()
-    const [dbmail, SetDbmail] = useState([])
+    const [dbmail] = useState([])
     useEffect(() => {
         try {
             const mailIDfilteration = query(collection(db, 'subsriberMailid'), orderBy('created', 'desc'));
@@ -29,12 +29,12 @@ export default function Ads() {
         } catch (e) {
             // error object 
         }
-    }, [])
+    }, [dbmail])
     async function subscribe(e) {
         e.preventDefault();
-        var filtreddata = dbmail.filter((i, index) => i.data.mailID == email);
+        var filtreddata = dbmail.filter((i, index) => i.data.mailID === email);
         if (email) {
-            if (filtreddata.length == 0) {
+            if (filtreddata.length === 0) {
                 try {
                     await addDoc(collection(db, 'subsriberMailid'), {
                         mailID: email,
