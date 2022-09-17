@@ -53,7 +53,7 @@ removeArrowOnDeviceType={["mobile" , "tablet"]}
                                        
                                         <h4 style={{ color: "#ff8d2e", textAlign: "center", fontSize: "12px", fontWeight: "500" }}>Best offer</h4>
                                         <div className='m-auto'>
-                                            <img className="hover:scale-105" src={NewPrd.img ? NewPrd.img : ""} style={{ width: "60%", margin: "10px 20%" }} />
+                                            <img className="hover:scale-105" src={NewPrd.img ? NewPrd.img : ""} alt="loading.." style={{ width: "60%", margin: "10px 20%" }} />
                                         </div>
                                         <h4 style={{ fontWeight: "400", color: "#383838" }} className='lg:text-base md:text-base  text-sm'>Color Fit Ultra</h4>
                                         <span>                                        <span className="lg:text-lg md:text-lg  text-base " style={{ fontWeight: "bold", color: "#505af0" }}><sub>₹ </sub>2,999</span></span>
