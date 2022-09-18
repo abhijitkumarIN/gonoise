@@ -12,8 +12,8 @@ export default function AllproductPage() {
     }, [originalState, filtredState])
 
     var productType = [];
-    if (originalState != null) {
-        var filtred = originalState.map((unique, index) => productType.push(unique.type))
+    if(originalState !== null) {
+        // var filtred = originalState.map((unique, index) => productType.push(unique.type))
 
     }
     var productTypeunique = [... new Set(productType)];
@@ -24,7 +24,7 @@ export default function AllproductPage() {
             SetoriginalState(all_products)
             SetFilteredState(null)
         } else {
-            var filtredData = await originalState.filter((flt) => flt.type == values);
+            var filtredData = await originalState.filter((flt) => flt.type === values);
             SetFilteredState(filtredData);
         }
     }
