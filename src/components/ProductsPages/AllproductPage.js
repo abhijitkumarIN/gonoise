@@ -12,10 +12,12 @@ export default function AllproductPage() {
     }, [originalState, filtredState])
 
     var productType = [];
-    if(originalState !== null) {
+    if (originalState !== null) {
         // var filtred = originalState.map((unique, index) => productType.push(unique.type))
 
     }
+    
+    
     var productTypeunique = [... new Set(productType)];
 
     async function filterData(e) {
@@ -34,27 +36,27 @@ export default function AllproductPage() {
         console.log(values);
         switch (values) {
             case 'High to Low':
-                var filtredOne =[...originalState]
+                var filtredOne = [...originalState]
                 var filtredData = await filtredOne.sort((a, b) => b.price - a.price);
                 SetFilteredState(filtredData);
                 break;
             case 'Low to High':
-                var filtredtwo =[...originalState]
+                var filtredtwo = [...originalState]
                 var filtredData = await filtredtwo.sort((a, b) => a.price - b.price);
                 SetFilteredState(filtredData);
                 break;
-                case 'High Rating':
-                    var filtredOne =[...originalState]
-                    var filtredData = await filtredOne.sort((a, b) => b.rating - a.rating);
-                    SetFilteredState(filtredData);
+            case 'High Rating':
+                var filtredOne = [...originalState]
+                var filtredData = await filtredOne.sort((a, b) => b.rating - a.rating);
+                SetFilteredState(filtredData);
 
                 break;
-                case 'Unset':
-                    SetoriginalState(all_products)
-                    SetFilteredState(null)
-                    break
+            case 'Unset':
+                SetoriginalState(all_products)
+                SetFilteredState(null)
+                break
             default:
-               
+
         }
     }
     return (
@@ -77,7 +79,7 @@ export default function AllproductPage() {
                 }
                 <span>
                     <select onClick={sortingFunction}>
-                    <option >ORDER</option>
+                        <option >ORDER</option>
                         <option value="Unset">Unset</option>
                         <option >Low to High</option>
                         <option >High to Low</option>
