@@ -1,7 +1,7 @@
-import React, { useTransition, useState, useEffect } from 'react'
+import React, {  useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import AddToCart, { addCart } from '../../app/Slices/AddToCart';
-import { useParams, useLocation } from 'react-router-dom'
+import  { addCart } from '../../app/Slices/AddToCart';
+import { useParams } from 'react-router-dom'
 import { productsAll } from '../../JsonData.js/products'
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,14 +16,14 @@ import NavbarModal from '../Model/NavbarModal/NavbarModal';
 
 function Products() {
     const [productRender, setProductRender] = useState(null);
-    const { state } = useLocation()
+    // const { state } = useLocation()
     const { id } = useParams()
     const dispatch = useDispatch()
     const stateCart = useSelector((state) => state.cart)
     var filtredData;
 
     if (id !== undefined && id !== null && id !== '') {
-        filtredData = productsAll.watch_series.filter((product_all) => product_all.seriesId == id)
+        filtredData = productsAll.watch_series.filter((product_all) => product_all.seriesId === id)
     }
 
 
@@ -97,7 +97,7 @@ function Products() {
 
                                         {
                                             productRender.imageViewGallery.map((imagesGallery, index) => (
-                                                <SwiperSlide key={index}><div className='grid p-10'><img className='m-auto' src={imagesGallery} /></div></SwiperSlide>
+                                                <SwiperSlide key={index}><div className='grid p-10'><img className='m-auto' alt="loading.." src={imagesGallery} /></div></SwiperSlide>
                                             ))
                                         }
                                     </Swiper>
